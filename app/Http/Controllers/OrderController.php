@@ -12,7 +12,7 @@ class OrderController extends Controller
     public function index($id,$user_id)
     {
         // 商品情報をデータベースから所得
-        $products = product::where('user_id', Auth::id())->get();
+        $products = product::where('user_id', $user_id)->get();
         $value = $id;
         return view(
             'order_page',

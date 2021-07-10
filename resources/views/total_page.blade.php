@@ -20,6 +20,7 @@
                 <th>個数</th>
                 <th>状況</th>
             </tr>
+            @if(isset( $orders ))
             @foreach( $orders as $order )
             <tr>
                 <td>
@@ -44,9 +45,9 @@
             </tr>
             @endforeach
         </table>
-        </div>
-        <h3 style="text-align: right;">注文合計金額　{{ $totalfee }}円</h3>
-        <form method="post" action="{{ route('change_finish') }}">
+    </div>
+    <h3 style="text-align: right;">注文合計金額　{{ $totalfee }}円</h3>
+    <form method="post" action="{{ route('change_finish') }}">
         @csrf
         <input type="hidden" name="table_number" value="{{ $table_number }}">
         @foreach($orders as $order)
@@ -58,6 +59,7 @@
             <input class="page_back" type="button" onclick="history.back()" value="注文ページに戻ります">
         </div>
     </form>
+    @endif
     <p>{{ session('flash_message') }}</p>
 </body>
 

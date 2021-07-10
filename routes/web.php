@@ -25,7 +25,10 @@ Route::get('tableCount_page', 'QRcodeController@tableCount')->name('tableCount_p
 
 Route::post('QRcode_page', 'QRcodeController@store')->name('QRcode_page');
 
-// 登録ページrouting
+// 種類登録ページrouting
+Route::get('kind_page', 'kindController@index')->name('kind_page');
+
+// 商品登録ページrouting
 Route::get('register_page', 'RegisterController@index')->name('register_page');
 
 Route::post('product_store', 'RegisterController@store')->name('product_store');

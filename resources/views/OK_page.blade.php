@@ -16,12 +16,13 @@
     <div class="total">
         <form method="post" action="{{ route('total_page') }}">
             @csrf
+            <input type="hidden" name="user_id" value="{{ $user_id }}">
             <input type="hidden" name="table_number" value="{{ $table_number }}">
             <input type="submit" value="現在の注文状況">
-            <div style="text-align: center;margin-top: 40px;">
-                <input class="page_back" type="button" onclick="location.href='http://localhost:8888/order_page/table={{ $table_number }}&user_id={{$user_id}}'" value="注文ページに戻ります">
-            </div>
         </form>
+        <div style="text-align: center;margin-top: 40px;">
+            <input class="page_back" type="button" onclick="location.href='http://localhost:8888/order_page/table={{ $table_number }}&user_id={{$user_id}}'" value="注文ページに戻ります">
+        </div>
     </div>
 </body>
 

@@ -21,6 +21,8 @@
     <div class="button">
         <button type="button" onclick="location.href='tableCount_page'" class="btn btn-reserve">テーブル数登録</button>
         <br>
+        <button type="button" onclick="location.href='kind_page'" class="btn btn-reserve">種類登録</button>
+        <br>
         <button type="button" onclick="location.href='register_page'" class="btn btn-reserve">商品登録</button>
         <br>
         <button type="button" onclick="location.href='management_page'" class="btn btn-reserve">管理画面</button>

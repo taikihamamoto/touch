@@ -76,6 +76,7 @@
 <div class="total">
         <form method="post" action="{{ route('total_page') }}">
             @csrf
+            <input type="hidden" name="user_id" value="{{ $user_id }}">
             <input type="hidden" name="table_number" value="{{ $table_number }}">
             <input type="submit" value="現在の注文状況">
         </form>

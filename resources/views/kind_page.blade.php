@@ -11,9 +11,7 @@
 </head>
 
 <body>
-    <h1 style="text-align: center;">注文が確定しました。</h1>
-    <h2 style="text-align: center;">合計金額は<span style="color: red;">{{ $totalfee }}</span>円です。</h2>
-    <h2 style="text-align: center;">レジへお向かいください。</h2>
+    
 </body>
 
 </html>
