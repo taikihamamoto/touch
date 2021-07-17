@@ -19,7 +19,7 @@
     </form>
     <h1 class="youkoso">ようこそ！<span class="name">{{ Auth::user()->name }}</span>さま！</h1>
     <div class="button">
-        <button type="button" onclick="location.href='tableCount_page'" class="btn btn-reserve">テーブル数登録</button>
+        <button type="button" class="btn btn-reserve"><a href="{{ route('tableCount_page') }}">テーブル数登録</a></button>
         <br>
         <button type="button" onclick="location.href='kind_page'" class="btn btn-reserve">種類登録</button>
         <br>
