@@ -1,218 +1,176 @@
-div.button {
-    text-align: center;
+* {
+  margin: 0;
 }
 
-button {
-    margin-bottom: 30px;
-    font-size: large;
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #083a67;
+  background: -webkit-gradient(linear, left bottom, left top, from(#083a67), to(#2d9afd));
+  background: linear-gradient(0deg, #083a67 0%, #2d9afd 100%);
+  height: 100vh;
+  overflow: hidden;
 }
 
-div.contents-box {
-
-    padding: 5px;
-    width: 155px;
-    margin-top: 10px;
+.app-logo {
+  width: 150px;
+  margin: 0 auto;
 }
 
-/* QRコード関連 */
-div.tableCountForm {
-    text-align: center;
+.app-logo h1 img {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
-.Reference_Mark {
-    opacity: 0.5;
+.container {
+  width: 100%;
+  height: 100%;
+  padding-top: 80px;
 }
 
-.home_back {
-    display: block;
-    margin: 0 0 0 auto;
+.container .outer-frame {
+  width: 100%;
 }
 
-/* order */
-.tab-label {
-    color: White;
-    background: LightGray;
-    font-weight: bold;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, .2);
-    margin-bottom: -1px;
-    padding: 10px .5em;
-    border: 1px solid rgba(0, 0, 0, .2);
-    cursor: pointer;
-    display: block;
+.card {
+  margin-top: 70px;
+  position: relative;
 }
 
-.tab-label:before {
-    content: '▼';
-    margin-right: .2em;
-    display: inline-block;
-    transform: rotate(-90deg);
+.card .form {
+  border-radius: 6px;
+  margin: 0 auto;
 }
 
-.tab-switch:checked+.tab-label:before {
-    transform: rotate(0);
+.card .form-group {
+  margin: 0 auto;
 }
 
-.tab-content {
-    height: 0;
-    padding: 0 15px;
-    overflow: hidden;
-    opacity: 0;
+.card .form-group div[class$="input"] {
+  margin: 0 auto;
+  width: 80%;
+  background: rgba(255, 255, 255, 0.061);
+  position: relative;
+  margin-bottom: 15px;
+  border-radius: 100px;
+  -webkit-box-shadow: 0px 5px 7px 0 rgba(0, 0, 0, 0.267);
+          box-shadow: 0px 5px 7px 0 rgba(0, 0, 0, 0.267);
 }
 
-/* アクティブなタブ */
-.tab-switch:checked+.tab-label {
-    background: DeepSkyBlue;
+.card .form-group div[class$="input"] input {
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-size: 17px;
+  padding: 0;
+  border: inherit;
+  background: inherit;
+  padding: 10px 0;
+  margin: 0px !important;
+  text-indent: 2em;
+  border-radius: 100px;
+  color: #fff;
 }
 
-.tab-switch:checked+.tab-label+.tab-content {
-    height: auto;
-    overflow: auto;
-    margin-bottom: -1px;
-    padding: 15px;
-    opacity: 1;
-    transition: .5s;
-    border: 1px solid LightGray;
+.card .form-group div[class$="input"] input:focus {
+  outline: none;
+  -webkit-box-shadow: 0 0 0 2px orange;
+          box-shadow: 0 0 0 2px orange;
 }
 
-/* ラジオボタン非表示 */
-.tab-switch {
-    display: none;
+.card .form-group div[class$="input"] input::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.37);
 }
 
-
-.plan-content {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    list-style: none;
-    padding: 0px;
-
+.card .form-group div[class$="input"] input:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.37);
 }
 
-.plan-item {
-    background-color: #fff;
-    margin-bottom: 30px;
-    box-shadow: 1px 1px 3px #aaa;
-    display: flex;
+.card .form-group div[class$="input"] input::-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.37);
 }
 
-.order_post {
-    margin: auto 5px;
-    width: 30px;
+.card .form-group div[class$="input"] input::placeholder {
+  color: rgba(255, 255, 255, 0.37);
 }
 
-.confirmSubmit {
-    display: block;
-    margin: 0 0 0 auto;
+.card .form-group div[class$="input"] i {
+  position: absolute;
+  top: 48%;
+  left: 10px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  color: white;
 }
 
-/* confirmテーブルcss */
-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
+.or-btn-box {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100;
+  padding-bottom: 20px;
 }
 
-table th:first-child {
-    border-radius: 5px 0 0 0;
+.or-btn-box .box-text {
+  font-size: 19px;
+  color: #fff;
+  text-align: center;
+  position: relative;
 }
 
-table th:last-child {
-    border-radius: 0 5px 0 0;
-    border-right: 1px solid #3c6690;
+.or-btn-box .box-text::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  -webkit-transform: translatY(-50%);
+          transform: translatY(-50%);
+  width: 20%;
+  height: 1px;
+  background: #fff;
 }
 
-table th {
-    text-align: center;
-    color: white;
-    background: linear-gradient(#829ebc, #225588);
-    border-left: 1px solid #3c6690;
-    border-top: 1px solid #3c6690;
-    border-bottom: 1px solid #3c6690;
-    box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.3) inset;
-    width: 20%;
-    padding: 10px 0;
+.or-btn-box .box-text::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  -webkit-transform: translatY(-50%);
+          transform: translatY(-50%);
+  width: 20%;
+  height: 1px;
+  background: #fff;
 }
 
-table td {
-    text-align: center;
-    border-left: 1px solid #a8b7c5;
-    border-bottom: 1px solid #a8b7c5;
-    border-top: none;
-    box-shadow: 0px -3px 5px 1px #eee inset;
-    width: 20%;
-    padding: 10px 0;
+.btn-outer {
+  margin: 0 auto;
+  width: 83%;
+  border-radius: 30px;
+  padding: 10px;
+  margin-top: 25px;
 }
 
-table td:last-child {
-    border-right: 1px solid #a8b7c5;
+.btn-outer .btn {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: inherit;
+  color: white;
+  font-size: 20px;
 }
 
-table tr:last-child td:first-child {
-    border-radius: 0 0 0 5px;
+.btn-outer .btn a {
+  color: white;
+  text-decoration: none;
 }
 
-table tr:last-child td:last-child {
-    border-radius: 0 0 5px 0;
+.btn-outer.create {
+  background: #b84343;
 }
 
-.confirmOkey {
-    display: block;
-    margin: 0 0 0 auto;
-    background-color: rgb(253, 54, 54);
-    border-radius: 10px;
-    font-size: 20px;
-    color: white;
+.btn-outer.login {
+  background: #0bb619;
 }
-
-.confirmCansel {
-    display: block;
-    margin: 0 0 0 auto;
-    background-color: rgb(54, 147, 253);
-    border-radius: 10px;
-    font-size: 20px;
-    color: white;
-}
-
-div.clear {
-    display: inline-block;
-    vertical-align: top;
-}
-
-div.total {
-    text-align: center;
-}
-
-.pay_off {
-    display: block;
-    margin: 0 0 0 auto;
-    background-color: rgb(253, 54, 54);
-    border-radius: 10px;
-    font-size: 20px;
-    color: white;
-}
-
-.page_back {
-    margin: 0 0 auto auto;
-    background-color: rgb(163, 163, 163);
-    border-radius: 10px;
-    font-size: 20px;
-    color: white;
-}
-
-.home_back {
-    margin-top: 50px;
-    color: red;
-    text-decoration: none;
-    text-align: center;
-    font-size: 1.4em;
-    font-weight: 700;
-    margin-bottom: 24px;
-}
-
-.youkoso {
-    text-align: center;
-}
-.name {
-    color: red;
-}
+/*# sourceMappingURL=style.css.map */
