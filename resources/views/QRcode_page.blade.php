@@ -11,15 +11,18 @@
 </head>
 
 <body>
-    @foreach ( $QRcodeData as $QRcodeData )
+    @foreach ( $QRcodeDatas as $QRcodeData )
     <div class="plan-item" style="padding: 10px;">
         <h4>{{ $QRcodeData['count'] }}</h4>
         <a href="{{ $QRcodeData['url'] }}">QRコードのページはこちら</a>
         <br>
         {{ $QRcodeData['QRcodePicture'] }}
+        <img src="{{ $QRcodeData['url'] }}">
     </div>
     @endforeach
-        <h3 ><a class="home_back" href="/">ここを押してホームへ戻ります</a></h3>
+    <button type="button" onclick="location.href='tableCountUp'" class="btn btn-reserve">テーブル数変更</button>
+        <br>
+    <h3><a class="home_back" href="/">ここを押してホームへ戻ります</a></h3>
 </body>
 
 </html>

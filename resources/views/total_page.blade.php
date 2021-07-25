@@ -12,9 +12,9 @@
 </head>
 
 <body>
-<div>
+    <div>
         <h1>あなたの注文情報</h1>
-<table>
+        <table>
             <tr>
                 <th>商品名</th>
                 <th>個数</th>
@@ -32,13 +32,11 @@
                 </td>
                 <td>{{ $order->count }}</td>
                 <td>
-                    @if ( $order->status == "creating" )
+                    @if ( $order->status == "1" )
                     <p style="font-size: 20px;color: red;">調理中</p>
-                    @endif
-                    @if ( $order->status == "made" )
+                    @elseif ( $order->status == "2" )
                     <p style="font-size: 20px;color: green;">配達中</p>
-                    @endif
-                    @if ( $order->status == "send" )
+                    @elseif ( $order->status == "3" )
                     <p style="font-size: 20px;color: blue;">配達済み</p>
                     @endif
                 </td>

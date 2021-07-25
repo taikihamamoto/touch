@@ -22,13 +22,15 @@ class ManagementController extends Controller
     public function change_made()
     {
         $id = $_POST['order_id'];
-        Order::where('id', $id)->update(['status' => "made"]);
+        // statusを2に変更
+        Order::where('id', $id)->update(['status' => 2]);
         return back();
     }
     public function change_send()
     {
         $id = $_POST['order_id'];
-        Order::where('id', $id)->update(['status' => "send"]);
+        // statusを3に変更
+        Order::where('id', $id)->update(['status' => 3]);
         return back();
     }
 }

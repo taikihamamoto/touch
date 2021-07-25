@@ -23,10 +23,14 @@ Route::get('/', 'MainController@index')->name('top_page');
 // QRコードページroting
 Route::get('tableCount_page', 'QRcodeController@tableCount')->name('tableCount_page');
 
+Route::get('tableCountUp', 'QRcodeController@tableCountUp')->name('tableCountUp');
+
 Route::post('QRcode_page', 'QRcodeController@store')->name('QRcode_page');
 
 // 種類登録ページrouting
 Route::get('kind_page', 'kindController@index')->name('kind_page');
+
+Route::post('kind_store', 'KindController@store')->name('kind_store');
 
 // 商品登録ページrouting
 Route::get('register_page', 'RegisterController@index')->name('register_page');
@@ -34,7 +38,8 @@ Route::get('register_page', 'RegisterController@index')->name('register_page');
 Route::post('product_store', 'RegisterController@store')->name('product_store');
 
 // 注文ページrouting
-Route::get('/order_page/table={id}&user_id={user_id}', 'OrderController@index')->name('order_page');
+Route::get('/order_page/user_id={user_id}&table={id}', 'OrderController@index')->name('order_page');
+Route::get('Ajax/Management', 'Ajax\ManagementController@index')->name('Ajax/Management');
 // 確認ページroting
 Route::post('confirm_page', 'OrderController@confirm')->name('confirm_page');
 // 注文登録

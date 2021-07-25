@@ -41,7 +41,7 @@
         @endforeach
         <input class="confirmOkey" type="submit" value="はい、注文を確定します"><br>
     </form>
-        <input class="confirmCansel" type="button" onclick="history.back()" value="いいえ、注文ページに戻ります">
+    <input class="confirmCansel" type="button" onclick="history.back()" value="いいえ、注文ページに戻ります">
 </body>
 
 </html>
