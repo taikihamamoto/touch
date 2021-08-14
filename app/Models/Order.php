@@ -8,7 +8,12 @@ class Order extends Model
 {
     protected $table = 'Order';
 
-    protected $fillable =  
+    public const STATUS_CREATE = 1;
+    public const STATUS_MADE = 2;
+    public const STATUS_SEND = 3;
+    public const STATUS_FINISHED = 4;
+
+    protected $fillable =
     [
         'id',
         'user_id',
