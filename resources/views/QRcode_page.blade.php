@@ -20,6 +20,7 @@
         <img src="{{ $QRcodeData['url'] }}">
     </div>
     @endforeach
+        <button><a class="" href="">QRコードの印刷</a></button>
     <button type="button" onclick="location.href='tableCountUp'" class="btn btn-reserve">テーブル数変更</button>
         <br>
     <h3><a class="home_back" href="/">ここを押してホームへ戻ります</a></h3>
