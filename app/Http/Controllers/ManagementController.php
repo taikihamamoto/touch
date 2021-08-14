@@ -19,16 +19,4 @@ class ManagementController extends Controller
             ['orders' => $orders,'products' => $products]
         );
     }
-    public function change_made()
-    {
-        $id = $_POST['order_id'];
-        Order::where('id', $id)->update(['status' => "made"]);
-        return back();
-    }
-    public function change_send()
-    {
-        $id = $_POST['order_id'];
-        Order::where('id', $id)->update(['status' => "send"]);
-        return back();
-    }
 }
