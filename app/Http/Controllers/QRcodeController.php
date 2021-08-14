@@ -16,6 +16,7 @@ class QRcodeController extends Controller
     public function store()
     {
         $count = $_POST['tableCount'];
+        
         // QRコードをテーブル数だけ制作
         for ($i = 0; $i < $count; $i++)
         {
@@ -34,5 +35,9 @@ class QRcodeController extends Controller
             'QRcode_page',
             ['QRcodeData' => $QRcodeData]
         );
+    }
+    public function save()
+    {
+
     }
 }

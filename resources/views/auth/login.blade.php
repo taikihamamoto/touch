@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.auth')
 @section('title', 'ログイン画面')
 @section('content')
 <div class="card">
