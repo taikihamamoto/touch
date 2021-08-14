@@ -31,6 +31,17 @@
                     @enderror
                 </div>
             </div>
+            <div class="form-group row">
+                <div class="col-md-6 offset-md-4">
+                    <div class="form-check">
+                        <label class="form-check-label" for="remember">
+                            {{ __('Remember Me') }}
+                        </label>
+
+                        <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                    </div>
+                </div>
+            </div>
             <div class="btn-outer login">
                 <button type="submit" class="btn btn-primary">
                     {{ __('ログインする') }}

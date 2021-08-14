@@ -19,7 +19,7 @@ class CreateOrderTables extends Migration
             $table->integer('table_number')->comment('テーブル番号');
             $table->integer('product_id')->comment('商品id');
             $table->integer('count')->comment('個数');
-            $table->string('status')->comment('状況');
+            $table->integer('status')->comment('状況');
             $table->timestamps();
         });
     }

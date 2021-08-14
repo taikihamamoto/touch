@@ -21,7 +21,7 @@
             <input type="submit" value="現在の注文状況">
         </form>
         <div style="text-align: center;margin-top: 40px;">
-            <input class="page_back" type="button" onclick="location.href='http://localhost:8888/order_page/table={{ $table_number }}&user_id={{$user_id}}'" value="注文ページに戻ります">
+            <input class="page_back" type="button" onclick="location.href='{{ $url }}'" value="注文ページに戻ります">
         </div>
     </div>
 </body>

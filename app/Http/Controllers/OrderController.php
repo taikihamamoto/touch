@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kind;
 use App\Models\Product;
 use App\Models\Order;
 use Illuminate\Http\Request;
@@ -12,11 +13,12 @@ class OrderController extends Controller
     public function index($id,$user_id)
     {
         // 商品情報をデータベースから所得
+        $kinds = Kind::where('user_id', $user_id)->get();
         $products = product::where('user_id', $user_id)->get();
         $value = $id;
         return view(
             'order_page',
-            ['products' => $products, 'table_number' => $value, 'user_id' => $user_id]
+            ['products' => $products, 'kinds' => $kinds, 'table_number' => $value, 'user_id' => $user_id]
         );
     }
 
@@ -48,9 +50,12 @@ class OrderController extends Controller
         foreach ($datas as $data) {
             $id = $data['product_id'];
             $product_find_data = product::find($id);
+            // 種類の名前を取得
+            $kind = Kind::find($product_find_data->kind_id);
+            $kind = $kind->name;
             $product_data = array(
                 'product_id' => $id,
-                'kind' => $product_find_data->kind,
+                'kind' => $kind,
                 'name' => $product_find_data->name,
                 'amount' => $product_find_data->amount
             );
@@ -98,12 +103,14 @@ class OrderController extends Controller
                         'table_number' => $table_number,
                         'product_id' => $key,
                         'count' => $count,
-                        'status' => "creating"
+                        'status' => 1
                     );
                     $datas[] = $order_data;
                 }
             }
         }
+        $PHurl = (empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . $_SERVER['HTTP_HOST'] ;
+        $url = $PHurl."/order_page/user_id=" . $user_id . "&table=" . $table_number;
         // 注文情報をデータベースへ保存
         //データベース接続
         \DB::beginTransaction();
@@ -121,7 +128,8 @@ class OrderController extends Controller
             'OK_page',
             [
                 'table_number' => $table_number,
-                'user_id' => $user_id
+                'user_id' => $user_id,
+                'url' => $url
             ]
         );
     }
