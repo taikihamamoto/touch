@@ -19,7 +19,11 @@
     </form>
     <h1 class="youkoso">ようこそ！<span class="name">{{ Auth::user()->name }}</span>さま！</h1>
     <div class="button">
+        @if(Auth::user()->table_count == null)
         <button type="button" onclick="location.href='tableCount_page'" class="btn btn-reserve">テーブル数登録</button>
+        @else
+        <button type="button" onclick="location.href='tableCount_page'" class="btn btn-reserve">テーブルQRコード表示</button>
+        @endif
         <br>
         <button type="button" onclick="location.href='kind_page'" class="btn btn-reserve">種類登録</button>
         <br>
@@ -33,7 +37,7 @@
         <br>
         <br>
         <br>
-        <a href="http://localhost:8888/order_page/table=1&user_id=1">テーブル１page</a>
+        <a href="http://localhost:8888/order_page/user_id=1&table=1">テーブル１page</a>
     </div>
 </body>
 

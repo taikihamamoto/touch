@@ -47,6 +47,18 @@
                                 </div>
                             </div>
 
+                            <div class="form-group row">
+                                <div class="col-md-6 offset-md-4">
+                                    <div class="form-check">
+                                        <label class="form-check-label" for="remember">
+                                            {{ __('Remember Me') }}
+                                        </label>
+
+                                        <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="form-group row mb-0">
                                 <div class="col-md-8 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
@@ -55,7 +67,7 @@
                                 </div>
                             </div>
                         </form>
-                                        <h1>新規登録は<a href="{{ route('register') }}">こちら</a></h1>
+                        <h1>新規登録は<a href="{{ route('register') }}">こちら</a></h1>
                     </div>
                 </div>
             </div>
