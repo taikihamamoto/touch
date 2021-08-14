@@ -11,7 +11,18 @@ class KindController extends Controller
 {
     public function index()
     {
-        return view('kind_page');
+        $i = 0;
+        $kinds = Kind::where('user_id', Auth::id())->get();
+        foreach ($kinds as $kind) {
+            $i++;
+            $result_kinds[] = array('line_count' => $i, 'name' => $kind->name, 'id' => $kind->id);
+        }
+        return view(
+            'kind_page',
+            [
+                'kinds' => $result_kinds
+            ]
+        );
     }
 
     public function store(KindRequest $request)

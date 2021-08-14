@@ -24,23 +24,6 @@ class TotalController extends Controller
         if (empty($orders)) {
             return view('total_page')->with('flash_message', '何も登録されていません');
         }
-        // 合計金額を計算
-        $totalfee_box = array();
-        foreach ($orders as $data) {
-            foreach ($products as $product) {
-                if ($data['product_id'] == $product['id']) {
-                    $single_amount = $product['amount'];
-                }
-            }
-            $count = $data['count'];
-            $multiple_amount = $single_amount * $count;
-            $totalfee_box[] = $multiple_amount;
-        }
-        $sum = 0;
-        foreach ($totalfee_box as $value) {
-            $sum += $value;
-        }
-        $totalfee = $sum;
         // テーブル番号
         $table_number = $_POST['table_number'];
 
@@ -49,8 +32,7 @@ class TotalController extends Controller
             [
                 'orders' => $orders,
                 'products' => $products,
-                'table_number' => $table_number,
-                'totalfee' => $totalfee
+                'table_number' => $table_number
             ]
         );
     }

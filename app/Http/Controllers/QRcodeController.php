@@ -19,19 +19,19 @@ class QRcodeController extends Controller
             for ($i = 0; $i < $table_count; $i++) {
                 $iii = $i + 1;
                 $user_id = Auth::id();
-                $PHurl = (empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . $_SERVER['HTTP_HOST'] ;
-                $url = $PHurl."/order_page/user_id=" . $user_id . "&table=" . $iii;
-                $QRcodePicture = QrCode::size(100)->generate($url);
+                $protocol_host_URL = (empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . $_SERVER['HTTP_HOST'] ;
+                $url = $protocol_host_URL."/order_page/user_id=" . $user_id . "&table=" . $iii;
+                $$qrcode_image = QrCode::size(100)->generate($url);
                 $QRcode = array(
                     'count' => $iii,
                     'url' => $url,
-                    'QRcodePicture' => $QRcodePicture
+                    'qrcode_image' => $qrcode_image
                 );
-                $QRcodeDatas[] = $QRcode;
+                $qrcode_datas[] = $QRcode;
             };
             return view(
                 'QRcode_page',
-                ['QRcodeDatas' => $QRcodeDatas]
+                ['qrcode_datas' => $qrcode_datas]
             );
         }
         return view('tableCount');
@@ -49,21 +49,21 @@ class QRcodeController extends Controller
         for ($i = 0; $i < $table_count; $i++) {
             $iii = $i + 1;
             $user_id = Auth::id();
-            $PHurl = (empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . $_SERVER['HTTP_HOST'] ;
-            $url = $PHurl."/order_page/user_id=" . $user_id . "&table=" . $iii;
-            $QRcodePicture = QrCode::size(100)->generate($url);
+            $protocol_host_url = (empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . $_SERVER['HTTP_HOST'] ;
+            $url = $protocol_host_url."/order_page/user_id=" . $user_id . "&table=" . $iii;
+            $qrcode_image = QrCode::size(100)->generate($url);
             $QRcode = array(
                 'count' => $iii,
                 'url' => $url,
-                'QRcodePicture' => $QRcodePicture
+                'qrcode_image' => $qrcode_image
             );
-            $QRcodeDatas[] = $QRcode;
+            $qrcode_datas[] = $QRcode;
         };
         // テーブル数をアカウントに登録
         User::where('id', Auth::id())->update(['table_count' => $table_count]);
         return view(
             'QRcode_page',
-            ['QRcodeDatas' => $QRcodeDatas]
+            ['qrcode_datas' => $qrcode_datas]
         );
     }
 }

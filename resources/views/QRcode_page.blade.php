@@ -11,12 +11,12 @@
 </head>
 
 <body>
-    @foreach ( $QRcodeDatas as $QRcodeData )
+    @foreach ( $qrcode_datas as $qrcode_data )
     <div class="plan-item" style="padding: 10px;">
-        <h4>{{ $QRcodeData['count'] }}</h4>
+        <h4>{{ $qrcode_data['count'] }}</h4>
         <a href="{{ $QRcodeData['url'] }}">QRコードのページはこちら</a>
         <br>
-        {{ $QRcodeData['QRcodePicture'] }}
+        {{ $qrcode_data['qrcode_image'] }}
         <img src="{{ $QRcodeData['url'] }}">
     </div>
     @endforeach

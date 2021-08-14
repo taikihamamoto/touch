@@ -50,9 +50,12 @@ class OrderController extends Controller
         foreach ($datas as $data) {
             $id = $data['product_id'];
             $product_find_data = product::find($id);
+            // 種類の名前を取得
+            $kind = Kind::find($product_find_data->kind_id);
+            $kind = $kind->name;
             $product_data = array(
                 'product_id' => $id,
-                'kind' => $product_find_data->kind,
+                'kind' => $kind,
                 'name' => $product_find_data->name,
                 'amount' => $product_find_data->amount
             );

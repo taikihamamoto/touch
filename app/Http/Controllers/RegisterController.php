@@ -12,11 +12,25 @@ class RegisterController extends Controller
 {
     public function index()
     {
+        $i = 0;
         $kinds = Kind::where('user_id', Auth::id())->get();
-        return view('register',
-    [
-        'kinds' => $kinds
-    ]);
+        $products = product::where('user_id', Auth::id())->get();
+        foreach ($products as $product) {
+            $i++;
+            foreach ($kinds as $kind) {
+                if ($product->kind_id == $kind->id) {
+                    $kind_name = $kind->name;
+                }
+            }
+            $result_products[] = array('line_count' => $i, 'kind_name' => $kind_name, 'product_name' => $product->name, 'amount' => $product->amount);
+        }
+        return view(
+            'register',
+            [
+                'kinds' => $kinds,
+                'products' => $result_products
+            ]
+        );
     }
 
     public function store(ProductRequest $request)
