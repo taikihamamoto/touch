@@ -28,7 +28,8 @@ Route::get('tableCountUp', 'QRcodeController@tableCountUp')->name('tableCountUp'
 Route::post('QRcode_page', 'QRcodeController@store')->name('QRcode_page');
 
 Route::post('QRcode', 'QRcodeController@store')->name('QRcode_page');
-Route::post('QR');
+Route::post('QRcode/save', 'QRcodeContrroller@save')->name('QRcode_save');
+
 // 種類登録ページrouting
 Route::get('kind_page', 'kindController@index')->name('kind_page');
 

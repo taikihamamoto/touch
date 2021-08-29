@@ -6,9 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+<<<<<<< HEAD
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/app/style.css') }}">
+    <script src="{{ asset('js/script.js') }}"></script>
+=======
     <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="{{ asset('js/Total_page.js') }}"></script>
+>>>>>>> 314e53c9b4fd36f2d235c9e0de224a1d04f00076
     <title>注文ページ</title>
 </head>
 

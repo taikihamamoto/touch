@@ -1,0 +1,11 @@
+version: "3"
+
+services: QrManagementApp
+    laravel-db: mysql:5.7
+    networks:
+        - laravelnet
+    volumes:
+        - laravel-db:/var/lib/mysql
+    restart: always
+    ports:
+        - 3306:3306 
