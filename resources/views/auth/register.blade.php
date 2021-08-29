@@ -1,11 +1,10 @@
-@extends('layouts.layout')
-@section('title', 'ログイン画面')
+@extends('layouts.auth')
+@section('title', '新規アカウント作成画面')
 @section('content')
 <div class="card">
     <div class="card-body">
         <form class="form" method="POST" action="{{ route('register') }}">
             @csrf
-
             <div class="form-group">
                 <div class="name-input">
                     <i class="fa fa-user" aria-hidden="true"></i>
@@ -17,7 +16,6 @@
                     @enderror
                 </div>
             </div>
-
             <div class="form-group row">
                 <div class="email-input">
                     <i class="fas fa-envelope"></i>
@@ -29,7 +27,6 @@
                     @enderror
                 </div>
             </div>
-
             <div class="form-group row">
                 <div class="password-input">
                     <i class="fas fa-key"></i>
@@ -41,7 +38,6 @@
                     @enderror
                 </div>
             </div>
-
             <div class="form-group row">
                 <div class="password-input">
                     <i class="fas fa-key"></i>
