@@ -14,10 +14,9 @@
     @foreach ( $qrcode_datas as $qrcode_data )
     <div class="plan-item" style="padding: 10px;">
         <h4>{{ $qrcode_data['count'] }}</h4>
-        <a href="{{ $QRcodeData['url'] }}">QRコードのページはこちら</a>
+        <a href="{{ $qrcode_data['url'] }}">QRコードのページはこちら</a>
         <br>
-        {{ $qrcode_data['qrcode_image'] }}
-        <img src="{{ $QRcodeData['url'] }}">
+        {!! $qrcode_data['qrcode_image_tag'] !!}
     </div>
     @endforeach
         <button><a class="" href="">QRコードの印刷</a></button>

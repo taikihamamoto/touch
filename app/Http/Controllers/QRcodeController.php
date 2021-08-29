@@ -21,11 +21,13 @@ class QRcodeController extends Controller
                 $user_id = Auth::id();
                 $protocol_host_URL = (empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . $_SERVER['HTTP_HOST'] ;
                 $url = $protocol_host_URL."/order_page/user_id=" . $user_id . "&table=" . $iii;
-                $$qrcode_image = QrCode::size(100)->generate($url);
+                $qrcode_image = base64_encode(QrCode::format('png')->size(100)->generate($url));
+                $qrcode_image_tag = '<img src="/images/user_id=' . $user_id . '&table_id=' . $iii . '.png">';
                 $QRcode = array(
                     'count' => $iii,
                     'url' => $url,
-                    'qrcode_image' => $qrcode_image
+                    'qrcode_image' => $qrcode_image,
+                    'qrcode_image_tag' => $qrcode_image_tag
                 );
                 $qrcode_datas[] = $QRcode;
             };
@@ -44,23 +46,20 @@ class QRcodeController extends Controller
 
     public function store()
     {
-<<<<<<< HEAD
-        $count = $_POST['tableCount'];
-        
-=======
         $table_count = $_POST['tableCount'];
->>>>>>> 314e53c9b4fd36f2d235c9e0de224a1d04f00076
         // QRコードをテーブル数だけ制作
         for ($i = 0; $i < $table_count; $i++) {
             $iii = $i + 1;
             $user_id = Auth::id();
-            $protocol_host_url = (empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . $_SERVER['HTTP_HOST'] ;
+            $protocol_host_url = (empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . $_SERVER['HTTP_HOST'];
             $url = $protocol_host_url."/order_page/user_id=" . $user_id . "&table=" . $iii;
-            $qrcode_image = QrCode::size(100)->generate($url);
+            $qrcode_image = QrCode::format('png')->size(100)->generate($url, public_path('/images/user_id='. $user_id .'&table_id=' . $iii . '.png'));
+            $qrcode_image_tag = '<img src="/images/user_id=' . $user_id . '&table_id=' . $iii . '.png">';
             $QRcode = array(
                 'count' => $iii,
                 'url' => $url,
-                'qrcode_image' => $qrcode_image
+                'qrcode_image' => $qrcode_image,
+                'qrcode_image_tag' => $qrcode_image_tag
             );
             $qrcode_datas[] = $QRcode;
         };
