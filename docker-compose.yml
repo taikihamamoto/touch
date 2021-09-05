@@ -1,0 +1,33 @@
+version: "3"
+
+services: QrManagementApp
+    laravel-db:
+        image: mysql:5.7
+        container_name: mysql
+        networks:
+            - laravel-net
+        volumes:
+            - laravel-db:/var/lib/mysql
+        restart: always
+        ports:
+            - 3306:3306
+        environment:
+                MYSQL_ROOT_PASSWORD: root
+                MYSQL_DATABASE: Personal_development
+                MYSQL_USER: django
+                MYSQL_PASSWORD: django
+                TZ: Asia/Tokyo
+        restart: always
+        
+    lalavel-app:
+        depends_on: 
+                - laravel-db
+        build: .
+        networks:
+            - laravel-net
+        ports:
+            - "8080:80"
+        volumes:
+            - ./www/app:/var/www/app
+            - ./www/app/logs:/var/www/app/logs
+        tty: true
