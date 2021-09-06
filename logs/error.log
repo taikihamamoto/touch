@@ -1,0 +1,1 @@
+[Sun Sep 05 14:16:32.219504 2021] [autoindex:error] [pid 18] [client 192.168.176.1:58200] AH01276: Cannot serve directory /var/www/app/laravel/: No matching DirectoryIndex (index.php,index.html) found, and server-generated directory index forbidden by Options directive
