@@ -28,4 +28,5 @@ RUN /bin/sh -c a2enmod rewrite
 
 WORKDIR /var/www/app/laravel
 
+
 # RUN composer global require "laravel/installer"
